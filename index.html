@@ -2,12 +2,91 @@
 <html lang="jp">
     <head>
         <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.9.3/css/bulma.min.css">
-        <script type="text/javascript" src="./index.js"></script>
+        <link rel="stylesheet" href="./index.css"></style>
         <script defer src="https://use.fontawesome.com/releases/v6.1.1/js/all.js"></script>
         <meta charset="utf-8">
-        <title> Title </title>
+        <title> KeeW - Quickly and Simplely EarthQuake Infomation </title>
         <meta name="viewport" content="width=device-width, initial-scale=1">
     </head>
     <body>
+        <body>
+            <section class="section">
+                <div class="container">
+                    <div id="loading" class="has-text-centered">
+                        <i class="fas fa-redo-alt fa-spin"></i>
+                        <h1 class="title is-3 has-text-centered"> Loading...</h1>
+                    </div>
+                    <div id="main" style="display:none">
+                        <h1 class="title is-3"> KeeW - Quickly and Simplely EarthQuake Infomation</h1>
+                        <h1 class="subtitle is-4">軽量、かついろいろ。</h1>
+                        <div class="notification is-info">
+                          <strong> おしらせ </strong><br>
+                            KeeWはまだ公開準備中。</br>
+                            <a href="./index.html">クローズドベータテストに参加しませんか？</a>
+                    </div>
+                    <p id="nu"></p>
+                    <div id="contenta" class="ct" style="display: none">
+                    <h1 class="title is-3" id ="features" >🌟特徴 - features</h1>
+                          <div class="content" id="cona">
+                            <h1 class="title is-4 has-text-centered">最初からなにも設定しない、簡単な使い方</h1>
+                            <p class="has-text-centered"> KeeW (Electron版)には初心者にはよくわからない設定がありました。</p>
+                            <p class="has-text-centered"> そういった初期設定は何もせず、簡単に素早く情報を入手できます。</p>
+                          </div>
+                    </div>
+                    <div id="contentb" class="ct" style="display: none">
+                          <div class="content" id="conb">
+                            <h1 class="title is-4 has-text-centered">単純なGUI、色で直感。</h1>
+                            <p class="has-text-centered"> 独自の色スキーム（KeeWスキーム）を搭載。</p>
+                            <p class="has-text-centered"> 直感的に情報を感じれます。</p>
+                            <p class="has-text-centered"> <strong>↓ 架空のテストデータ(警報)</strong> </p>
+                            <figure>
+                                <img src="./images/example.png">
+                            </figure>
+                            <br>
+                            <p class="has-text-centered"> <strong>↓ 架空のテストデータ(予報)</strong> </p>
+                            <figure>
+                                <img src="./images/example2.png">
+                            </figure>
+                            </div>
+                    </div>
+
+                    <div id="contentc" class="ct" style="display: none">
+                        <div class="content" id="conc" >
+                          <h1 class="title is-4 has-text-centered">スピーディーな情報。</h1>
+                          <p class="has-text-centered"> 無料でこの速度。 </p>
+                        </div>
+                    </div>
+
+                    <div id="download" class="ct" style="display: none;">
+                        <h1 class="title is-3 has-text-centered"> 減災の一歩を踏み出そう。</h1>
+                        <h1 class="subtitle has-text-centered">Windowsはここからどうぞ。</h1>
+                        <h1 class="has-text-centered"> まだできないよ。</h1>
+                    </div>
+
+                    </div>
+                  </div>
+                </div>
+            </section>
+        </div>
     </body>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script>
+        window.onload = function(){
+          
+           $("#loading").delay(500).hide(1500);
+           $("#main").delay(2000).show(1500);
+        }
+        var data = 0;
+        window.onmousewheel = function(){
+            
+            data = Number(event.wheelDelta) + data;
+            if(data > 0) data= 0;
+            if(data < -500) { $("#contenta").show(1500) }else{ $("#contenta").hide(1500) } 
+            if(data < -800) { $("#contentb").show(1500) }else{ $("#contentb").hide(1500) } 
+            if(data < -1400) { $("#contentc").show(1500) }else{ $("#contentc").hide(1500) } 
+            if(data < -2000) { $("#download").show(1500); data = -1960 }else{ $("#download").hide(1500) } 
+ 
+        }
+
+    </script>
 </html>
