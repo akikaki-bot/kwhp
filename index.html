@@ -24,6 +24,9 @@
                             KeeWはまだ公開準備中。</br>
                             <a href="./index.html">クローズドベータテストに参加しませんか？</a>
                     </div>
+                    <div id="smart" style="display: none">
+                     <h1 class="title has-text-centered"> Sorry... このサイトはPC専用です。</h1>
+                    </div>
                     <p id="nu"></p>
                     <div id="contenta" class="ct" style="display: none">
                     <h1 class="title is-3" id ="features" >🌟特徴 - features</h1>
@@ -75,6 +78,14 @@
           
            $("#loading").delay(500).hide(1500);
            $("#main").delay(2000).show(1500);
+
+           var ua = navigator.userAgent;
+           if(ua.indexOf('iPhone') > 0 || ua.indexOf('iPod') > 0 || ua.indexOf('Android') > 0 && ua.indexOf('Mobile') > 0){
+            return $("#smart").show(1500)
+        }else if(ua.indexOf('iPad') > 0 || ua.indexOf('Android') > 0){
+            return $("#smart").show(1500)
+        }
+        
         }
         var data = 0;
         window.onmousewheel = function(){
